@@ -1,6 +1,6 @@
-<h1>Cats upon cats!</h1>
+<h1>99 Cats!</h1>
 
-<ul>
+<ul class="cats">
   <% @cats.each do |cat| %>
     <li><a href="<%= cat_url(cat) %>"><%= cat.name %></a></li>
   <% end %>

@@ -1,3 +1,20 @@
 // Place all the styles related to the cats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cats {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 50%;
+  position: relative;
+}
+
+.cats li {
+  margin: 20px;
+  background-color: blue;
+  padding: 20px;
+}
+
+.cats a {
+  color: yellow;
+}

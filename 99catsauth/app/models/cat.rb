@@ -25,4 +25,8 @@ class Cat < ActiveRecord::Base
   def age
     time_ago_in_words(birth_date)
   end
+
+  def self.colors
+    CAT_COLORS
+  end
 end

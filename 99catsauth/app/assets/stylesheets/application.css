@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+body li ul h1 h2 a form textarea input label option select{
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: sans-serif;
+
+}
+
+body {
+  background-color: turquoise;
+}
