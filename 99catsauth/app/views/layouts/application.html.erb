@@ -10,20 +10,25 @@
 <h1>99 Cats!</h1>
 <body>
 
-  <% if flash[:errors]%>
+
+
+<% if flash[:errors]%>
   <p><%= flash[:errors].join(", ") %></p>
 <% end %>
 
 
-
-  <% if @current_user %>
-  <h1> <%= @current_user.user_name %>
-    <% end %>
-
-    <a href=" <%= new_session_url %> ">Login</a>
-    <a href=" <%= cats_url %> ">Logout</a>
-
-  </h1>
+<h1>
+  <% if current_user %>
+    <%= current_user.user_name %>
+    <form class="" action="<%= session_url %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+      <input type="submit" name="" value="Logout">
+    </form>
+  <% else  %>
+    <a href="<%= new_session_url %>">Login</a>
+  <% end %>
+</h1>
 
 
 <%= yield %>

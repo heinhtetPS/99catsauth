@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   before_action :redirect_to_cats, only: [:create,  :new]
 
   def create
-    login_user
+    login_user!
   end
 
   def new
@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    #later
+    logout
+    redirect_to new_session_url
   end
 end
