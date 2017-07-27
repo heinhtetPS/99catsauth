@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :redirect_to_cats
 
   def new
     render :new

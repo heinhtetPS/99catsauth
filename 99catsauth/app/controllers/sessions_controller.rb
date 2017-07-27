@@ -1,18 +1,8 @@
 class SessionsController < ApplicationController
+  before_action :redirect_to_cats, only: [:create,  :new]
+
   def create
-    user = User.find_by_credentials(
-      params[:user][:user_name],
-      params[:user][:password]
-      )
-
-    if user
-      login(user)
-      redirect_to cats_url
-    else
-      flash.now[:errors] = ["Invalid Username or Password"]
-      render :new
-    end
-
+    login_user
   end
 
   def new

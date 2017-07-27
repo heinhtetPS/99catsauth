@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates password: length: { minimum: 6, allow_nil: true }
+  validates :password, length: { minimum: 6, allow_nil: true }
   validates :user_name, :session_token, presence: true, uniqueness: true
   validates :password_digest, presence: { message: "Password can't be blank" }
   after_initialize :ensure_session_token
@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   def ensure_session_token
-    session[:session_token] ||= User.generate_random_token
+    self.session_token ||= User.generate_random_token
   end
 
   def self.generate_random_token
@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   def self.find_by_credentials(user_name, password)
     user = User.find_by(user_name: user_name)
     return user if user && user.is_password?(password)
-    nil 
+    nil
   end
 
   def reset_session_token!

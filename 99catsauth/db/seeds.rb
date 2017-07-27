@@ -18,3 +18,6 @@ CatRentalRequest.destroy_all
   CatRentalRequest.create!(status: "PENDING", cat_id: cats.sample.id,
   start_date: Faker::Date.backward(14) , end_date: Faker::Date.forward(21))
 end
+
+User.create!(user_name: "Michael", password: "password")
+User.create!(user_name: "Hein", password: "password2")

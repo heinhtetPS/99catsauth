@@ -6,7 +6,25 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+<h1>99 Cats!</h1>
 <body>
+
+  <% if flash[:errors]%>
+  <p><%= flash[:errors].join(", ") %></p>
+<% end %>
+
+
+
+  <% if @current_user %>
+  <h1> <%= @current_user.user_name %>
+    <% end %>
+
+    <a href=" <%= new_session_url %> ">Login</a>
+    <a href=" <%= cats_url %> ">Logout</a>
+
+  </h1>
+
 
 <%= yield %>
 
